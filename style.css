@@ -1,0 +1,90 @@
+@-webkit-keyframes mask-bg {
+  0% {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+  40%,
+  60% {
+    -webkit-transform: translate(0%, 0);
+            transform: translate(0%, 0);
+  }
+  100% {
+    -webkit-transform: translate(101%, 0);
+            transform: translate(101%, 0);
+  }
+}
+
+@keyframes mask-bg {
+  0% {
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+  40%,
+  60% {
+    -webkit-transform: translate(0%, 0);
+            transform: translate(0%, 0);
+  }
+  100% {
+    -webkit-transform: translate(101%, 0);
+            transform: translate(101%, 0);
+  }
+}
+
+@-webkit-keyframes mask-color {
+  0%,
+  30% {
+    color: transparent;
+  }
+  100% {
+    color: black;
+  }
+}
+
+@keyframes mask-color {
+  0%,
+  30% {
+    color: transparent;
+  }
+  100% {
+    color: black;
+  }
+}
+
+.mask-bg {
+  display: table;
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s;
+  color: transparent;
+}
+
+.mask-bg::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #362ae0;
+  -webkit-transform: translate(100%, 0);
+          transform: translate(100%, 0);
+}
+
+.is-animation {
+  -webkit-animation: mask-color 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+          animation: mask-color 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+
+.is-animation::after {
+  -webkit-animation: mask-bg 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+          animation: mask-bg 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+
+.wrap {
+  background-color: lightskyblue;
+  padding: 20px;
+  margin: 20px;
+}
+/*# sourceMappingURL=style.css.map */

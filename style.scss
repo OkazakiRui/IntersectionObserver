@@ -1,0 +1,53 @@
+@keyframes mask-bg {
+  0% {
+    transform: translate(-100%, 0);
+  }
+  40%,
+  60% {
+    transform: translate(0%, 0);
+  }
+  100% {
+    transform: translate(101%, 0);
+  }
+}
+@keyframes mask-color {
+  0%,
+  30% {
+    color: transparent;
+  }
+  100% {
+    color: black;
+  }
+}
+
+.mask-bg {
+  display: table;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.5s;
+  color: transparent;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #362ae0;
+    transform: translate(100%, 0);
+  }
+}
+.is-animation {
+  animation: mask-color 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  &::after {
+    animation: mask-bg 1.2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  }
+}
+
+// style settings
+.wrap {
+  background-color: lightskyblue;
+  padding: 20px;
+  margin: 20px;
+}
